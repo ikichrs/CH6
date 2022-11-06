@@ -1,7 +1,6 @@
 package com.binar.challenge4.controller;
 
 import com.binar.challenge4.entity.FilmEntity;
-import com.binar.challenge4.repository.FilmRepository;
 import com.binar.challenge4.service.FilmService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,11 +11,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Tag(name="Film")
 @RestController
@@ -39,8 +36,8 @@ public class FilmController {
                             schema = @Schema(implementation = Response.class))})})
         @PostMapping("/post")
         @ResponseStatus(HttpStatus.CREATED)
-        public FilmEntity create(@RequestBody FilmEntity film){
-            return filmService.savefilm(film);
+        public FilmEntity create(@RequestBody FilmEntity filmEntity){
+            return filmService.savefilm(filmEntity);
         }
 
     @Operation(summary="Menampilkan Film")
@@ -71,8 +68,8 @@ public class FilmController {
                     content = {@Content(mediaType="application/json",
                             schema = @Schema(implementation = Response.class))})})
         @PutMapping("/update/{id}")
-        public FilmEntity update(@PathVariable Long id, @RequestBody FilmEntity film){
-            return filmService.updateFilm(id,film);
+        public FilmEntity update(@PathVariable Long id, @RequestBody FilmEntity filmEntity){
+            return filmService.updateFilm(id,filmEntity);
         }
 
     @Operation(summary="Menghapus Film")

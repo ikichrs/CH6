@@ -1,4 +1,4 @@
-package com.binar.challenge4.service.Impl;
+package com.binar.challenge4.service.impl;
 
 import com.binar.challenge4.entity.UserEntity;
 import com.binar.challenge4.repository.UserRepository;
@@ -34,13 +34,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity updateUser(Long id,UserEntity userEntity) {
-        UserEntity UserEntityFINDID=userRepository.findById((id)).get();
-        UserEntityFINDID.setUser_id(userEntity.getUser_id());
-        UserEntityFINDID.setUsername(userEntity.getUsername());
-        UserEntityFINDID.setPassword(userEntity.getPassword());
-        UserEntityFINDID.setEmail(userEntity.getEmail());
+        UserEntity userEntityFINDID=userRepository.findById((id)).get();
+        userEntityFINDID.setUserid(userEntity.getUserid());
+        userEntityFINDID.setUsername(userEntity.getUsername());
+        userEntityFINDID.setPassword(userEntity.getPassword());
+        userEntityFINDID.setEmail(userEntity.getEmail());
 
-        return userRepository.save(UserEntityFINDID);
+        return userRepository.save(userEntityFINDID);
     }
 
     @Override

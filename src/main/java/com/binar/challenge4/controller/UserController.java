@@ -1,9 +1,6 @@
 package com.binar.challenge4.controller;
 
-import  com.binar.challenge4.DTO.MessageModel;
-import com.binar.challenge4.entity.FilmEntity;
 import  com.binar.challenge4.entity.UserEntity;
-import com.binar.challenge4.service.FilmService;
 import com.binar.challenge4.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -39,8 +36,8 @@ public class UserController {
                             schema = @Schema(implementation = Response.class))})})
     @PostMapping("/post")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserEntity create(@RequestBody UserEntity user){
-        return userService.saveUser(user);
+    public UserEntity create(@RequestBody UserEntity userEntity){
+        return userService.saveUser(userEntity);
     }
 
     @Operation(summary="Menampilkan Data User")
@@ -71,8 +68,8 @@ public class UserController {
                     content = {@Content(mediaType="application/json",
                             schema = @Schema(implementation = Response.class))})})
     @PutMapping("/update/{id}")
-    public UserEntity update(@PathVariable Long id, @RequestBody UserEntity user){
-        return userService.updateUser(id,user);
+    public UserEntity update(@PathVariable Long id, @RequestBody UserEntity userEntity){
+        return userService.updateUser(id,userEntity);
     }
 
     @Operation(summary="Menghapus User")

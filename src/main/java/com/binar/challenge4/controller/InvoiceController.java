@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import net.sf.jasperreports.engine.JRException;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.FileNotFoundException;
 
-
-
+@Slf4j
 @Tag(name = "Invoice")
 @RestController
 @RequestMapping("/invoice")
@@ -46,15 +46,15 @@ public class InvoiceController {
                             schema = @Schema(implementation = Response.class))})})
   
     @GetMapping(value = "/download")
-    public ResponseEntity<?> DownloadInvoice(@RequestParam(required = false,value = "FileName") String FileName) throws JRException {
+    public ResponseEntity<Object> downloadInvoice(@RequestParam(required = false,value = "filename") String filename) throws JRException {
         try {
-            DBFile dbFile = invoiceService.generateInvoice(FileName);
-            System.out.println(dbFile + "File Ditemukan");
-            return ResponseEntity.ok().contentType(MediaType.parseMediaType(dbFile.getFileType()))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename\"" + FileName + "\"")
+            DBFile dbFile = invoiceService.generateInvoice(filename);
+            log.info(dbFile + "File Ditemukan");
+            return ResponseEntity.ok().contentType(MediaType.parseMediaType(dbFile.getFiletype()))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename\"" + filename + "\"")
                     .body(new ByteArrayResource(dbFile.getData()));
         } catch (JRException | FileNotFoundException e) {
-            System.out.println("file not found: " + e.getMessage());
+            log.info("file not found: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
     }

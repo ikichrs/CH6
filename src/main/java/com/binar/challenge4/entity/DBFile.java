@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class DBFile {
-    private String FileName;
-    private String FileType;
-    private byte[] Data;
+    private String filename;
+    private String filetype;
+    private byte[] data;
 }

@@ -1,4 +1,4 @@
-package com.binar.challenge4.service.Impl;
+package com.binar.challenge4.service.impl;
 
 import com.binar.challenge4.entity.FilmEntity;
 import com.binar.challenge4.repository.FilmRepository;
@@ -22,8 +22,8 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public Optional<FilmEntity> findById(Long user_id) {
-        return filmRepository.findById(user_id);
+    public Optional<FilmEntity> findById(Long userid) {
+        return filmRepository.findById(userid);
     }
 
     @Override
@@ -33,11 +33,11 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public FilmEntity updateFilm(Long id, FilmEntity filmEntity) {
-        FilmEntity FilmEntityFINDID=filmRepository.findById(id).get();
-        FilmEntityFINDID.setFilm_title(filmEntity.getFilm_title());
-        FilmEntityFINDID.setStatus(filmEntity.getStatus());
-        FilmEntityFINDID.setDurasi(filmEntity.getDurasi());
-        return filmRepository.save(FilmEntityFINDID);
+        FilmEntity filmEntityFINDID=filmRepository.findById(id).get();
+        filmEntityFINDID.setFilmtitle(filmEntity.getFilmtitle());
+        filmEntityFINDID.setStatus(filmEntity.getStatus());
+        filmEntityFINDID.setDurasi(filmEntity.getDurasi());
+        return filmRepository.save(filmEntityFINDID);
     }
 
     public String deleteFilm(Long id) {

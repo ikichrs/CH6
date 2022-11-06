@@ -18,7 +18,7 @@ public class FilmEntity {
     private Long id;
 
     @Column(name = "film_title")
-    private String film_title;
+    private String filmtitle;
 
     @Column(name = "durasi")
     private String durasi;

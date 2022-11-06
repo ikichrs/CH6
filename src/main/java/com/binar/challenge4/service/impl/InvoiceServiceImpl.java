@@ -1,4 +1,4 @@
-package com.binar.challenge4.service.Impl;
+package com.binar.challenge4.service.impl;
 
 import com.binar.challenge4.entity.DBFile;
 import com.binar.challenge4.service.FilmService;
@@ -36,8 +36,8 @@ public class InvoiceServiceImpl implements InvoiceService {
         byte[] data = JasperExportManager.exportReportToPdf(jasperPrint);
         DBFile dbFile = new DBFile();
         dbFile.setData(data);
-        dbFile.setFileName(filename);
-        dbFile.setFileType("ticket/pdf");
+        dbFile.setFilename(filename);
+        dbFile.setFiletype("ticket/pdf");
         return dbFile;
     }
 }

@@ -16,10 +16,10 @@ public class SchedulesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedules_id")
-    private String schedules_id;
+    private String schedulesid;
 
     @Column(name = "film_id")
-    private Long film_id;
+    private Long filmid;
     @ManyToOne
     @JoinColumn(name="film_id", insertable = false, updatable = false)
     private FilmEntity filmEntity;

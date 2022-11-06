@@ -62,7 +62,7 @@ public class AuthController {
                 .toList();
 
         return ResponseEntity.ok(new JWTResponse(jwt,
-                userDetails.getUser_id(),
+                userDetails.getUserid(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
@@ -70,16 +70,16 @@ public class AuthController {
     //endpoint signup metod post
     @PostMapping("/signup")
     public ResponseEntity<Object> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+        if (Boolean.TRUE.equals(userRepository.existsByUsername(signUpRequest.getUsername()))) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Username is already taken!"));
+                    .body(new MessageResponse("Username already taken"));
         }
 
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+        if (Boolean.TRUE.equals(userRepository.existsByEmail(signUpRequest.getEmail()))) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Email is already in use!"));
+                    .body(new MessageResponse("Email already taken"));
         }
 
 

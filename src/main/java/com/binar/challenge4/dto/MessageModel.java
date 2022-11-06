@@ -1,4 +1,4 @@
-package com.binar.challenge4.DTO;
+package com.binar.challenge4.dto;
 
 import lombok.Getter;
 import lombok.Setter;

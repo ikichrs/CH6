@@ -14,7 +14,7 @@ public class SeatsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "seat_number")
-    private String seat_number;
+    private String seatnumber;
     @Column(name = "seat_status")
-    private Boolean seat_status;
+    private Boolean seatstatus;
 }
