@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tiket" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="43eb6891-3a81-429f-a0b9-345ddea74ba8">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <parameter name="order_id" class="java.lang.Long"/>
+    <parameter name="film_id" class="java.lang.Long"/>
+    <parameter name="film_title" class="java.lang.String"/>
+    <parameter name="user_id" class="java.lang.Long"/>
+    <parameter name="seat_number" class="java.lang.String"/>
+    <parameter name="studio_id" class="java.lang.String"/>
+
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band height="30"/>
+    </background>
+    <title>
+        <band height="72">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="-20" width="190" height="80" backcolor="#006699" uuid="40904ab0-c75e-481d-974b-ba3cc5cfe367"/>
+                <staticText>
+                    <reportElement x="20" y="20" width="170" height="43" forecolor="#FFFFFF" uuid="92400517-8e92-48ec-87b9-3517bbe356a5"/>
+                    <textElement>
+                        <font size="24" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[Tiket Bioskop]]></text>
+                </staticText>
+            </frame>
+            <textField>
+                <reportElement x="390" y="5" width="154" height="30" uuid="ecb0e169-072b-41e1-96bd-6eeb32150ae1"/>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="22"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{order_id}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="13"/>
+    </pageHeader>
+    <columnHeader>
+        <band/>
+    </columnHeader>
+    <detail>
+        <band height="111">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="-1" width="69" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="694fd7c9-c1c0-4e0e-8c33-bfaa9e8a90b3">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d7d6ab8-d1ff-4ceb-8291-e1dade32f379"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[User ID :]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="260" y="-1" width="100" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="3bb3c72e-9bd6-4296-a04b-f4379eb2f7ed">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fc2cc93-8109-4c74-b11d-702e8779a65a"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nomor Kursi :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="76" y="-1" width="110" height="22" uuid="147e0f78-b35f-402b-aa58-f67de6a75112">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{user_id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="367" y="-1" width="138" height="22" uuid="69d67eac-96b0-420d-a8a7-a9a7af76e658">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{seat_number}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement mode="Opaque" x="262" y="32" width="100" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="66fc4ab5-4df2-471d-aee7-5d3234909229">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="347692bc-a258-4926-bb1f-c95df7ec6398"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Studio          :]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="1" y="31" width="69" height="22" forecolor="#006699" backcolor="#E6E6E6" uuid="66aba099-dfc3-434d-8e46-f03c128e85ad">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a36cf07-dad2-4e16-b8e1-fe4f74b9e7b7"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID Film :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="76" y="31" width="100" height="22" uuid="f0401314-ef79-4419-bd17-9f57e9d2760a">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{film_id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="366" y="32" width="128" height="22" uuid="c8e6f86c-601c-4291-b93b-cd6b4c8c4511">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{studio_id}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement mode="Opaque" x="1" y="65" width="69" height="24" forecolor="#006699" backcolor="#E6E6E6" uuid="37168f37-ca22-49c8-9308-babc61ec3b23">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02786115-5791-470c-b7ba-698cdb260997"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Judul   :]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="76" y="66" width="244" height="22" uuid="55401d5f-0506-437f-a60d-e54150e62523">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textElement>
+                    <font fontName="Arial Rounded MT Bold" size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{film_title}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band/>
+    </columnFooter>
+    <pageFooter>
+        <band height="34"/>
+    </pageFooter>
+    <summary>
+        <band/>
+    </summary>
+</jasperReport>
